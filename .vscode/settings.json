@@ -1,0 +1,9 @@
+{
+  "editor.inlineSuggest.enabled": false,
+  "editor.quickSuggestions": { "other": false, "comments": false, "strings": false },
+  "editor.suggestOnTriggerCharacters": false,
+  "editor.snippetSuggestions": "none",
+  "editor.parameterHints.enabled": false,
+  "editor.acceptSuggestionOnEnter": "off",
+  "github.copilot.enable": { "*": false }
+}
