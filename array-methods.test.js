@@ -92,4 +92,4 @@ const editData = expenses
 const result = expenses
   .filter(e => e.amount > 100)
   .map(e => e.title);
-  console.log("result ", result);
+  // console.log("result ", result);
