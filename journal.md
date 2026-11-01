@@ -24,3 +24,15 @@
 - fetch ต้อง await สองชั้น (fetch แล้วค่อย .json()) และ fetch ไม่ reject ตอนได้ 404/500 ต้องเช็ค res.ok แล้ว throw เองถึงจะเข้า catch
 - บั๊กที่เจอ: ประกาศฟังก์ชันแล้วลืมเรียก (เจอซ้ำหลายรอบ), ปีกกาไม่สมดุล, วาง console.log / การเรียกฟังก์ชันหลัง return, เรียกฟังก์ชันตัวเองข้างในตัวเอง, await นอก async function, `;` คั่นกลาง chain, เรียก .map บน Promise ก่อน await, console.time ใช้ label ชนกันตอนรันซ้อน, ใส่ true เป็นชื่อพารามิเตอร์ตอนประกาศฟังก์ชัน
 - ต้องทบทวน: การแยกว่าอะไรคือ "ชื่อพารามิเตอร์ตอนประกาศ" กับ "ค่าจริงตอนเรียก", การอ่าน error message ใน terminal, และเมื่อ catch กลืน error แล้วฝั่งที่เรียกจะรู้ได้ยังไงว่าล้มเหลว
+
+
+## Session 4 (18 ต.ค. 2026)
+- เรียน TypeScript Basics: type พื้นฐาน, type ของ function, interface, union / literal type, optional property ทำโจทย์ข้อ 1-5 ครบ
+- TypeScript ตรวจ type ก่อนรัน แต่ Node รันไฟล์ .ts โดยตัด type ทิ้งโดยไม่ตรวจ ต้องดูผลจาก `npx tsc --noEmit` หรือเส้นแดงใน VS Code ไม่ใช่จากผลรัน (add("5", 3) รันได้ผล "53" ทั้งที่ type ผิด)
+- `: type` ต่อท้ายชื่อตัวแปรคือการผูก type กับตัวแปร ส่วน `type ชื่อ = ...` เป็นแค่การตั้งชื่อเล่นให้ type ไม่ได้ผูกกับตัวแปรไหน
+- อ่าน error: ts(2322) = ใส่ค่าลงตัวแปรผิด type, ts(2345) = ส่ง argument เข้า parameter ผิด type
+- interface ตรวจทั้งสองทิศทาง ข้อมูลขาด property ที่ต้องมี หรือมี property เกินที่ interface ไม่รู้จัก ต่างก็ถูกฟ้อง
+- union / literal type (`"food" | "transport" | "bill"`) รับเฉพาะค่าที่ระบุเป๊ะ จับการพิมพ์ผิดได้ ต่างจาก string ที่รับอะไรก็ได้
+- optional property (`note?: string`) ทำให้ type เป็น string | undefined ต้องเช็คหรือใช้ `??` ก่อนใช้ และ `""` ไม่ใช่ undefined จึงถือว่ามีค่า
+- บั๊กที่เจอ: ใส่ true เป็นชื่อพารามิเตอร์ตอนประกาศ, เรียกฟังก์ชันตัวเองข้างในตัวเอง, console.log ตัวฟังก์ชันแทนผลการเรียก (ลืม `()`), เขียน `type expenses = Expense[]` แทน `const expenses: Expense[]`, เครื่องหมายคำพูดไม่ปิด, ลบ comment โจทย์ทดลองที่ผิดไม่หมดทำให้ tsc ค้าง error
+- ต้องทบทวน: ความต่างของ `: type` กับ `type ... =`, การประกาศ interface ชื่อซ้ำที่ TypeScript รวมให้เงียบๆ

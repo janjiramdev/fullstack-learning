@@ -2,6 +2,6 @@
   "name": "fullstack-learning",
   "private": true,
   "scripts": {
-    "dev": "node --watch array-methods.test.js"
+    "dev": "node --watch session4-practice.ts"
   }
 }
